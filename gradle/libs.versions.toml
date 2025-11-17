@@ -1,0 +1,79 @@
+[versions]
+agp = "8.6.1"
+kotlin = "2.0.0"
+ksp = "2.0.0-1.0.21" # Added KSP version, should match your Kotlin version
+hilt = "2.51.1"
+composeBom = "2024.06.00"
+lifecycle = "2.8.2"
+activityCompose = "1.9.1"
+navigation = "2.7.7"
+retrofit = "2.11.0"
+moshi = "1.15.1"
+okhttp = "5.0.0-alpha.14"
+securityCrypto = "1.1.0-alpha06"
+coroutines = "1.8.1"
+junit = "4.13.2"
+composeCompiler = "1.6.10"
+browser = "1.8.0"
+hiltNavigationCompose = "1.2.0"
+
+[libraries]
+# Compose - Aliases corrected to avoid dot notation
+# Using the Compose BOM (Bill of Materials) is excellent.
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+androidx-compose-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+
+# Lifecycle
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+
+# Activity Compose
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+
+# Navigation
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+
+# Network - Aliases for Moshi and Retrofit corrected to be flat
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+moshi-core = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
+moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
+moshi-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
+okhttp-core = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+
+# DI (Dependency Injection)
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+
+# Security Crypto - Uncommented and corrected
+androidx-security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "securityCrypto" }
+
+# Coroutines
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# Testing
+junit = { module = "junit:junit", version.ref = "junit" }
+androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "browser" }
+
+[plugins]
+# Aliases corrected to use hyphens instead of dots for a flat structure
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
+# Defines the Hilt annotation processor (compiler).
+# The alias "hilt-compiler" will be accessible in Gradle as: libs.hilt.compiler
+#hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" } # Added KSP for modern annotation processing
+#kotlin-compose-compiler = { id = "org.jetbrains.compose", version.ref = "composeCompiler" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
