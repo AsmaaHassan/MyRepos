@@ -1,7 +1,7 @@
-package com.example.github.data.remote.mapper
+package com.example.github.data.mappers
 
-import com.example.github.data.remote.dto.BranchDto
-import com.example.github.data.remote.dto.RepoDto
+import com.example.github.data.models.dto.BranchDto
+import com.example.github.data.models.dto.RepoDto
 import com.example.github.domain.model.Branch
 import com.example.github.domain.model.Repo
 /**

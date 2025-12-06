@@ -1,4 +1,4 @@
-package com.example.github.data.remote.api
+package com.example.github.data.datasources.remote.api
 
 /**
  * Created by AsmaaHassan on 16,November,2025
@@ -6,10 +6,9 @@ package com.example.github.data.remote.api
  * Cairo, Egypt.
  */
 
-import com.example.github.data.remote.dto.TokenResponseDto
+import com.example.github.data.models.dto.TokenResponseDto
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface TokenApi {

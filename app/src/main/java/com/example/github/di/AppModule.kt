@@ -1,8 +1,12 @@
 package com.example.github.di
 
-import com.example.github.data.local.AuthStore
-import com.example.github.data.remote.api.GithubApi
-import com.example.github.data.remote.api.TokenApi
+import android.content.Context
+import androidx.room.Room
+import com.example.github.data.datasources.local.AuthStore
+import com.example.github.data.datasources.local.dao.BranchDao
+import com.example.github.data.datasources.local.database.GithubDatabase
+import com.example.github.data.datasources.remote.api.GithubApi
+import com.example.github.data.datasources.remote.api.TokenApi
 import com.example.github.data.repository.AuthRepositoryImpl
 import com.example.github.data.repository.GithubRepositoryImpl
 import com.example.github.domain.repository.AuthRepository
@@ -13,6 +17,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -31,7 +36,7 @@ import javax.inject.Singleton
 
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(SingletonComponent::class) // This ensures the module lives as long as the application
 object AppModule {
 
     @Provides @Singleton
@@ -105,7 +110,23 @@ object AppModule {
     fun provideAuthRepository(api: TokenApi, authStore: AuthStore): AuthRepository =
         AuthRepositoryImpl(api, authStore)
 
+    @Provides
+    @Singleton // This annotation ensures only one instance is created
+    fun provideDatabase(@ApplicationContext context: Context): GithubDatabase {
+        return Room.databaseBuilder(
+            context.applicationContext,
+            GithubDatabase::class.java,
+            "my_app_database_name" // Name of your DB file
+        ).fallbackToDestructiveMigration() // Simple strategy for schema changes in development
+            .build()
+    }
 
+    // Ask how to afsel between hilt classes
+    @Provides
+    @Singleton
+    fun provideBranchDao(database: GithubDatabase): BranchDao {
+        return database.branchDao()
+    }
 }
 
 data class UseCases(

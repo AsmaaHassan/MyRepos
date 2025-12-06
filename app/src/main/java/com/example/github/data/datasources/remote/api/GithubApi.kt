@@ -1,7 +1,7 @@
-package com.example.github.data.remote.api
+package com.example.github.data.datasources.remote.api
 
-import com.example.github.data.remote.dto.BranchDto
-import com.example.github.data.remote.dto.RepoDto
+import com.example.github.data.models.dto.BranchDto
+import com.example.github.data.models.dto.RepoDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

@@ -10,10 +10,6 @@ import com.example.github.domain.model.Repo
 
 sealed interface ReposUiState {
     data class Success(val data: List<Repo>) : ReposUiState
-
     object Loading : ReposUiState
-//    val repos: List<Repo> = emptyList(),
-object Error : ReposUiState
-
-
+    object Error : ReposUiState
 }

@@ -1,4 +1,4 @@
-package com.example.github.data.local
+package com.example.github.data.datasources.local
 
 import android.content.Context
 import androidx.security.crypto.EncryptedSharedPreferences

@@ -1,4 +1,4 @@
-package com.example.github.data.remote.dto
+package com.example.github.data.models.dto
 
 import com.squareup.moshi.Json
 /**

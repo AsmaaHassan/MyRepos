@@ -13,7 +13,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.rememberNavController
-import com.example.github.di.UseCasesEntryPoint
 import com.example.github.presentation.navigation.AppNavHost
 import com.example.github.ui.theme.GithubTheme
 import dagger.hilt.EntryPoints

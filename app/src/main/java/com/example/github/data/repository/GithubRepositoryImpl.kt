@@ -1,8 +1,8 @@
 package com.example.github.data.repository
 
-import com.example.github.data.local.AuthStore
-import com.example.github.data.remote.api.GithubApi
-import com.example.github.data.remote.mapper.toDomain
+import com.example.github.data.datasources.local.AuthStore
+import com.example.github.data.datasources.remote.api.GithubApi
+import com.example.github.data.mappers.toDomain
 import com.example.github.domain.model.Branch
 import com.example.github.domain.model.Repo
 import com.example.github.domain.repository.GithubRepository

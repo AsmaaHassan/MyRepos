@@ -1,4 +1,4 @@
-package com.example.github.data.remote.dto
+package com.example.github.data.models.dto
 
 /**
  * Created by AsmaaHassan on 16,November,2025

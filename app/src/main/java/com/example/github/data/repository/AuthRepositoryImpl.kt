@@ -6,8 +6,8 @@ package com.example.github.data.repository
  * Cairo, Egypt.
  */
 
-import com.example.github.data.local.AuthStore
-import com.example.github.data.remote.api.TokenApi
+import com.example.github.data.datasources.local.AuthStore
+import com.example.github.data.datasources.remote.api.TokenApi
 import com.example.github.domain.repository.AuthRepository
 import javax.inject.Inject
 
